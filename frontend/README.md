@@ -58,9 +58,7 @@ The application allows users to manage products, customers, orders, and inventor
 ### Dashboard
 
 * Total Products
-* Active Products
 * Total Customers
-* Active Customers
 * Total Orders
 * Pending Orders
 * Cancelled Orders
