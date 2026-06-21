@@ -1,0 +1,165 @@
+/* ============================================
+   Design tokens — Inventory Management System
+   Professional SaaS palette, built on Bootstrap 5
+   ============================================ */
+
+:root {
+  /* Core palette */
+  --ims-primary: #4f46e5;       /* indigo — primary actions */
+  --ims-primary-dark: #4338ca;
+  --ims-surface: #ffffff;
+  --ims-bg: #f8f9fc;            /* app background, slightly cooler than pure white */
+  --ims-border: #e5e7eb;
+  --ims-text: #1f2937;
+  --ims-text-muted: #6b7280;
+  --ims-success: #16a34a;
+  --ims-danger: #dc2626;
+  --ims-warning: #d97706;
+
+  --ims-radius: 0.65rem;
+  --ims-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --ims-shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+}
+
+body {
+  background-color: var(--ims-bg);
+  color: var(--ims-text);
+}
+
+/* Override default Bootstrap primary with our indigo, app-wide */
+.btn-primary {
+  background-color: var(--ims-primary);
+  border-color: var(--ims-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--ims-primary-dark);
+  border-color: var(--ims-primary-dark);
+}
+.text-primary { color: var(--ims-primary) !important; }
+.bg-primary { background-color: var(--ims-primary) !important; }
+
+/* Cards */
+.card {
+  border-radius: var(--ims-radius);
+  box-shadow: var(--ims-shadow-sm);
+  border: 1px solid var(--ims-border);
+}
+
+/* ---- Navbar: professional gradient + logo badge (replaces flat bg-dark) ---- */
+.ims-navbar {
+  background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 55%, #4f46e5 100%);
+  box-shadow: var(--ims-shadow-md);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1060; /* stays above the mobile sidebar and its overlay */
+}
+
+.ims-navbar-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+}
+.ims-navbar-toggle:hover,
+.ims-navbar-toggle:focus {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.ims-navbar-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.ims-navbar .navbar-brand {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Sidebar: real off-canvas behavior (fully self-contained, no Bootstrap position utilities) ---- */
+.ims-sidebar {
+  position: fixed;
+  top: 60px;                     /* sits below the sticky navbar on mobile */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 60px);
+  z-index: 1050;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+.ims-sidebar.ims-sidebar-open {
+  transform: translateX(0);
+}
+@media (min-width: 992px) {
+  .ims-sidebar {
+    position: static;
+    top: 0;
+    height: 100vh;
+    transform: none;
+  }
+}
+
+/* Sidebar links */
+.ims-nav-link {
+  font-weight: 500;
+  font-size: 0.925rem;
+  transition: background-color 0.15s ease;
+}
+.ims-nav-link:hover:not(.active) {
+  background-color: #f3f4f6;
+}
+
+/* Tables */
+.table-responsive {
+  border-radius: var(--ims-radius);
+  overflow: hidden;
+}
+.ims-table thead th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ims-text-muted);
+  background-color: #f9fafb;
+  border-bottom: 1px solid var(--ims-border);
+  white-space: nowrap;
+}
+.ims-table tbody td {
+  vertical-align: middle;
+}
+
+/* Dashboard stat cards */
+.ims-stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+/* Empty state */
+.ims-empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--ims-text-muted);
+}
+
+/* Prevent horizontal overflow on small screens */
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
