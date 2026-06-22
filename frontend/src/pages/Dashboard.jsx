@@ -190,7 +190,9 @@ function Dashboard() {
                                     <thead>
                                         <tr>
                                             <th>Order ID</th>
-                                            <th>Customer ID</th>
+                                             <th>Customer</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
                                             <th>Amount</th>
                                             <th>Status</th>
                                             <th>Date</th>
@@ -200,7 +202,9 @@ function Dashboard() {
                                         {recentOrders.map((order) => (
                                             <tr key={order.id}>
                                                 <td className="fw-semibold">#{order.id}</td>
-                                                <td>{order.customer_id}</td>
+                                               <td>{order.customer_name}</td>
+                                                <td>{order.mobile}</td>
+                                                <td>{order.email}</td>
                                                 <td>{formatCurrency(order.total_amount)}</td>
                                                 <td><StatusBadge status={order.status} /></td>
                                                 <td className="text-muted small">{formatDate(order.created_at)}</td>
