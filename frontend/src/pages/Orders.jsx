@@ -172,7 +172,9 @@ function Orders() {
                                     <thead>
                                         <tr>
                                             <th>Order ID</th>
-                                            <th>Customer ID</th>
+                                            <th>Customer</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
                                             <th>Amount</th>
                                             <th>Status</th>
                                             <th>Date</th>
@@ -183,7 +185,9 @@ function Orders() {
                                         {orders.map((o) => (
                                             <tr key={o.id}>
                                                 <td className="fw-semibold">#{o.id}</td>
-                                                <td>{o.customer_id}</td>
+                                              <td>{o.customer_name}</td>
+                                                <td>{o.mobile}</td>
+                                                <td>{o.email}</td>
                                                 <td>{formatCurrency(o.total_amount)}</td>
                                                 <td><StatusBadge status={o.status} /></td>
                                                 <td className="text-muted small">{formatDate(o.created_at)}</td>
