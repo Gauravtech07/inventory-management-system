@@ -158,11 +158,27 @@ def get_orders(
     total = query.count()
 
     orders = query.offset(skip).limit(page_size).all()
+ data = []
 
+    for order in orders:
+        customer = db.query(Customer).filter(
+            Customer.id == order.customer_id
+        ).first()
+
+        data.append({
+            "id": order.id,
+            "customer_name": customer.full_name,
+            "mobile": customer.phone,
+            "email": customer.email,
+            "total_amount": float(order.total_amount),
+            "status": order.status,
+            "created_at": order.created_at
+        })
+        
     return {
         "success": True,
         "message": "Orders fetched successfully",
-        "data": orders,
+        "data": data,
         "pagination": {
             "total": total,
             "page": page,
